@@ -1,9 +1,9 @@
 class Solution:
     def findDisappearedNumbers(self, nums): 
-        n = len(nums) 
+        n = len(nums) # to see how manu characters we have in the list 
         num_set = set(nums) # get rid of all the duplicates in the array 
         missing_numbers = [] # storage for missing number/s
-        for i in range(1, n+1): 
+        for i in range(1, n+1): # run the loop till one extra index
             if i not in num_set: 
                 missing_numbers.append(i)
         return missing_numbers

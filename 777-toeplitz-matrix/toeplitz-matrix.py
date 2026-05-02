@@ -5,7 +5,7 @@ class Solution:
 
         for i in range(rows - 1):
             for j in range(cols - 1):
-                if matrix[i][j] != matrix[i + 1][j + 1]: 
+                if matrix[i][j] != matrix[i + 1][j + 1]: # this is is the wway to get the next element in the same diagonal of the matrix so (0, 0) to (1, 1) if not same return False
                     return False
 
         return True

@@ -5,10 +5,12 @@
 #         self.next = next
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        current = head 
-        while current and current.next: 
-            if current.val == current.next.val: 
-                current.next = current.next.next 
-            else: 
-                current = current.next
-        return head
+        current = head # point tto he 1st element 
+        while current and current.next: # if both of them has values in them 
+            if current.val == current.next.val: # if the pointer val and the val next to that is same
+                current.next = current.next.next # skip the value , print the next 
+            else: # if the values are not same, meaning they are not duplicates of each other 
+                current = current.next # let it flow normally 
+        return head 
+
+    

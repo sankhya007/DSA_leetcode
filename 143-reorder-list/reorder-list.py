@@ -12,27 +12,28 @@ class Solution:
             return 
 
         slow = head
-        fast = head.next
-
+        fast = head.next # here we want the slow pointer to stay at the previous index of the mid thats why we have forwarded the fast by one element 
         while fast and fast.next: 
             slow = slow.next
-            fast = fast.next.next
+            fast = fast.next.next # find the mid position
 
         second = slow.next
-        prev = slow.next = None
+        prev = slow.next = None # here we are partitioning the list into two 
+        # 1st part the header is head and for the 2nd part the header is None or prev
         while second: 
             temp = second.next
             second.next = prev
             prev = second
-            second = temp
+            second = temp # reverse the 2nd part 
 
-        first = head
-        second = prev
+        # now merge the 2nd part
+        first = head 
+        second = prev # head pointers for both of the lists 
         while second: 
-            temp1, temp2 = first.next, second.next
-            first.next = second
-            second.next = temp1
-            first, second = temp1, temp2
+            temp1, temp2 = first.next, second.next # pointers 
+            first.next = second # 2nd element 
+            second.next = temp1 # 3rd element
+            first, second = temp1, temp2 # increment 
 
-            
+
         

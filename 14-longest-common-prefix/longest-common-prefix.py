@@ -1,18 +1,16 @@
-class Solution:
-    def longestCommonPrefix(self, strings): 
-        if not strings: 
-            return "the strings list is empty."
+class Solution: 
+    def longestCommonPrefix(self, strs): 
+        if not strs:
+            return "empty list!"
 
-        prefix = strings[0] 
-        # asssign the 1st character of the list as the standerd to check the left overs in the list later on 
-        for i in range(1, len(strings)): #leaving out the 1st and looping till the end 
-            while not strings[i].startswith(prefix): # cheeck if the charcaters start with the assigned prefix
-                prefix = prefix[:-1] # if not then -1 
-                if not prefix: # means the prefix is empty(did not match with any of the exixting)
+        prefix = strs[0]
+
+        for i in range(1, len(strs)): 
+            while not strs[i].startswith(prefix): 
+                prefix = prefix[:-1]
+                if not prefix: 
                     return ""
 
         return prefix
 
-strings = strings = ["nigger", "nigga", "nga", "nigrow", "negro", "pablo"]
-solution = Solution()
-print(solution.longestCommonPrefix(strings))
+        

@@ -1,6 +1,6 @@
 class Solution: 
     def searchMatrix(self, matrix, target): 
-        if not matrix: 
+        if not matrix or not matrix[0]: 
             return False
         rows = len(matrix)
         cols = len(matrix[0])

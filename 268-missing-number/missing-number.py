@@ -1,6 +1,6 @@
-class Solution: 
-    def missingNumber(self, nums): 
+class Solution(object):
+    def missingNumber(self, nums):
         n = len(nums) + 1
-        expected_sum = n * (n - 1) // 2
+        expected_sum = n * (n -1) // 2
         actual_sum = sum(nums)
-        return expected_sum - actual_sum
+        return expected_sum - actual_sum 

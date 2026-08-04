@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution:
     def missingNumber(self, nums):
         n = len(nums) + 1
         expected_sum = n * (n -1) // 2

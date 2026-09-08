@@ -1,13 +1,22 @@
-class Solution:
+class Solution(): 
     def groupAnagrams(self, strs): 
-        anagram_storage = {} #creating a set for the indivisual anagram list
-        for s in strs: 
-            sorted_s = "".join(sorted(s)) # here we are sorting indivisual values in the list
-            if sorted_s not in anagram_storage: 
-                anagram_storage[sorted_s] = [] # create a empty list for that sorted value
-            anagram_storage[sorted_s].append(s) # if it exists then append the value in that specific index
-        return list(anagram_storage.values()) # calling the values as an output 
+        
+        # storage for anagrams 
+        anagram_storage = {}
 
-strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-solution = Solution()
-print(solution.groupAnagrams(strs))
+        # loop through the given array
+        for s in strs: 
+            
+            # sort the indivisual words(done so that it is easy to find the anagrams)
+            sorted_s = "".join(sorted(s))
+            
+            # check if anagram not in storage
+            if sorted_s not in anagram_storage: 
+                # if not then make a storage for anagram
+                anagram_storage[sorted_s] = []
+
+            # append the value in the new created storage
+            anagram_storage[sorted_s].append(s)
+        
+        #return the lists alltogether
+        return list(anagram_storage.values())

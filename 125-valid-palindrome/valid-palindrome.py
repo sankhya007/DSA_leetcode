@@ -1,17 +1,23 @@
-class Solution(): 
-    def isPalindrome(self, s): 
-        left = 0
+class Solution():
+    def isPalindrome(self, s):
+
+        # sliding window
+        left = 0 
         right = len(s) - 1
 
         while left < right: 
-            while left < right and not s[left].isalnum(): 
+            # check alphaneumaric
+            while left < right and not s[left].isalnum():
                 left += 1
             while left < right and not s[right].isalnum(): 
                 right -= 1
+
+            # check simillarity
             while s[left].lower() != s[right].lower(): 
-                return False
+                return False 
+
             left += 1
             right -= 1
-        return True 
+            # incremental increase
 
-        
+        return True

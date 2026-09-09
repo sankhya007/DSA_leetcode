@@ -1,13 +1,17 @@
-class Solution: 
-    def twoSum(self, nums, target): 
-        num_set = {}
+class Solution(): 
+	def twoSum(self, nums, target): 
+		storage = {}
 
-        for i, num in enumerate(nums): 
-            complement = target - num
+		for i, num in enumerate(nums): 
+			complement = target - num 
 
-            if complement in num_set: 
-                return [num_set[complement], i]
+			if complement in storage: 
+				return [storage[complement], i]
 
-            num_set[num] = i 
+			# if the complement not in storage
+			storage[num] = i 
 
-    
+solution = Solution()
+nums = [2,7,11,15]
+target = 9
+print(solution.twoSum(nums, target))

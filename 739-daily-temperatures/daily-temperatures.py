@@ -1,11 +1,29 @@
-class Solution: 
-    def dailyTemperatures(self, tempratures): 
-        n = len(tempratures)
-        answer = [0] * n
+# daily temp
+
+class Solution(): 
+    def dailyTemperatures(self, temperatures): 
+
+        # storage to store the days in 
+        n = len(temperatures)
+        storage = [0] * n 
+
+        # empty stack for temp storage of index
         stack = []
-        for i, temp in enumerate(tempratures): 
-            while stack and temp > tempratures[stack[-1]]: 
-                prev_index = stack.pop() # pop last value
-                answer[prev_index] = i - prev_index # value of specified index
-            stack.append(i) # append if nothing exits
-        return answer
+
+        for i, temp in enumerate(temperatures): 
+
+            # if value in stack, and today's temp more than yesterday's temp
+            while stack and temp > temperatures[stack[-1]]: 
+
+                # assign yesterday's index
+                prev_index = stack.pop()
+
+                # i = current index, prev_index = last index which was more than today
+                # storing how much more 
+                storage[prev_index] = i - prev_index
+
+            # store index to compare
+            stack.append(i)
+
+        return storage
+

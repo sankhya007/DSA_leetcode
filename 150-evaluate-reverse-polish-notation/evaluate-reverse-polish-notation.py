@@ -25,7 +25,14 @@ class Solution():
 
                 # no float value
                 elif token == "/": 
-                    stack.append(int(a / b))
+                    # use absolute values 
+                    result = abs(a) // abs(b)
+
+                    # trying to figure out of one value is negative or not, if so then turn result -ve and append. else, ignore and append 
+                    if (a < 0) != (b < 0): 
+                        result = -result 
+
+                    stack.append(result)
 
             # if a value then add to the stack, make int so further calculation possible
             else: 

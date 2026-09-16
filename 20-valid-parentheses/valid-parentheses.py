@@ -4,18 +4,26 @@ class Solution():
     def isValid(self, s): 
 
         stack = []
-        mapping = {")": "(", "}": "{", "]": "["}
+
+        mapping = {")": "(", "}": "{", "]": "["} 
+
+        # suppose s = "({[]})"
 
         for char in s: 
+
+            # check if it is a closing bracket
             if char in mapping: 
-                # if the value of the popped element does not match the element in array return False
-                # pop if stack has element
+
+                # top element of stack matches the value of the closing bracket
                 top_element = stack.pop() if stack else "#"
-                if mapping[char] != top_element: 
+
+                # value under mapping(opening bracket) is not equal to top element return false
+                if mapping[char] != top_element :
                     return False
-                    
-            # append if there is opening bracket        
+
+            # all the opening brackets will be appended in the stack
             else: 
                 stack.append(char)
 
+        # if stack empty
         return not stack

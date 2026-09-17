@@ -1,3 +1,5 @@
+# generate parenthesis 
+
 class Solution(): 
     def generateParenthesis(self, n): 
 
@@ -5,15 +7,32 @@ class Solution():
 
         def backtrack(current, open, close): 
 
-            if len(current) == n * 2: # goal reached
+            # current - the string bulit so far
+            # open - how many ( used so far(we can have n number of opening brackets)
+            # close - how many ) used so far(same as open)
+
+            # of length double then - reached goal
+            # append in stack and return
+            if len(current) == 2 * n: 
                 result.append(current)
-                return result 
+                return
 
-            if open < n: # haven't placed enough opening brackets
-                backtrack(current + "(", open + 1, close)
+            # meaning we have more opening brackets left, place another opening bracket and recurse with open + 1
+            if open < n: 
+                backtrack(current + "(", open + 1, close) 
 
-            if close < open: # haven't placed enough closing brackets
-                backtrack(current + ")", open, close + 1) 
+            # meaning close == open, add another ")" to the current and recurse with close + 1 
+            if close < open: 
+                backtrack(current + ")", open, close + 1)
 
+        # is to start the recursion with an empty space
         backtrack("", 0, 0)
+
         return result
+
+
+
+
+
+
+

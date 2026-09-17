@@ -1,29 +1,29 @@
-from collections import deque
-class MyStack:
+# implement a stack using queue
 
+from collections import deque
+
+class MyStack: 
     def __init__(self):
+        # double ended queue 
         self.q = deque()
 
-    def push(self, x: int) -> None:
+    # left = top (gives out)
+    # right = bottom (gets in)
+    def push(self, x): 
         self.q.append(x)
 
+        # for each off the values we pop and append it in left/back
         for _ in range(len(self.q) - 1): 
             self.q.append(self.q.popleft())
 
-    def pop(self) -> int:
+    # pop top/left item
+    def pop(self): 
         return self.q.popleft()
 
-    def top(self) -> int:
+    # return top most/left most value
+    def top(self): 
         return self.q[0]
 
-    def empty(self) -> bool:
+    # check if queue empty
+    def empty(self): 
         return len(self.q) == 0 
-        
-
-
-# Your MyStack object will be instantiated and called as such:
-# obj = MyStack()
-# obj.push(x)
-# param_2 = obj.pop()
-# param_3 = obj.top()
-# param_4 = obj.empty()

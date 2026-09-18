@@ -1,29 +1,34 @@
-# implement a stack using queue
+# implement queue using stack
 
-from collections import deque
+# __init__
+# push 
+# pop
+# top 
+# empty 
+
+from collections import deque 
 
 class MyStack: 
-    def __init__(self):
-        # double ended queue 
+    
+    # initialize double sided queue
+    def __init__(self): 
         self.q = deque()
 
-    # left = top (gives out)
-    # right = bottom (gets in)
+    # add new number in right, loop through the old numbers pull them back from left and add them from the right
     def push(self, x): 
         self.q.append(x)
 
-        # for each off the values we pop and append it in left/back
         for _ in range(len(self.q) - 1): 
             self.q.append(self.q.popleft())
 
-    # pop top/left item
+    # pop the leftmost or the topmost item
     def pop(self): 
         return self.q.popleft()
 
-    # return top most/left most value
+    # return the 1st element form left
     def top(self): 
         return self.q[0]
 
-    # check if queue empty
+    # check if has element or no
     def empty(self): 
-        return len(self.q) == 0 
+        return len(self.q) == 0

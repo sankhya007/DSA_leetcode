@@ -16,7 +16,9 @@ class Solution():
             true = return not stack meaning,the stack is empty
             '''
             if char in mapping:  
-                if mapping[char] != stack.pop() if stack else "#":
+                #if mapping[char] != stack.pop() if stack else "#":
+                top_element = stack.pop() if stack else "#"
+                if mapping[char] != top_element:
                     return False
             else: 
                 stack.append(char)

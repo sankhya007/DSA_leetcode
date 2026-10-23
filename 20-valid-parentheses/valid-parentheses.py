@@ -1,29 +1,24 @@
-# valid parentheses 
+# valid parenthesis
 
 class Solution(): 
-    def isValid(self, s): 
+    def isValid(self, s):
 
         stack = []
-
-        mapping = {")": "(", "}": "{", "]": "["} 
-
-        # suppose s = "({[]})"
+        # opening bracket as the value of the closing brackets
+        mapping = {")":"(", "}":"{", "]":"["}
 
         for char in s: 
-
-            # check if it is a closing bracket
-            if char in mapping: 
-
-                # top element of stack matches the value of the closing bracket
-                top_element = stack.pop() if stack else "#"
-
-                # value under mapping(opening bracket) is not equal to top element return false
-                if mapping[char] != top_element :
+            '''
+            if not closing bracket - add in stack 
+            if closing bracket, pop value from stack
+            store in temp_element, compare 
+            if match - true, else False
+            true = return not stack meaning,the stack is empty
+            '''
+            if char in mapping:  
+                if mapping[char] != stack.pop() if stack else "#":
                     return False
-
-            # all the opening brackets will be appended in the stack
             else: 
                 stack.append(char)
 
-        # if stack empty
         return not stack

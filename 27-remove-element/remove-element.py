@@ -1,8 +1,8 @@
-class Solution: 
-    def removeElement(self, nums, val): 
-        left = 0
-        for right in range(len(nums)):
-            if nums[right] != val:
-                nums[left] = nums[right]
-                left += 1
-        return left
+class Solution(object):
+    def removeElement(self, nums, val):
+        count = 0 
+        for num in nums: 
+            if num != val: 
+                nums[count] = num
+                count += 1
+        return count

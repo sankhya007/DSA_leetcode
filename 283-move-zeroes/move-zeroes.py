@@ -1,27 +1,22 @@
-# move zero - leetcode 
+# move zeros
 
-class Solution(): 
-	def moveZeroes(self, nums): 
+class Solution: 
+    def moveZeroes(self, nums): 
 
-		# increment variable
-		position = 0 
+        index = 0
+        # can not create a new array
 
-		# initial loop
-		for num in nums: 
+        for num in nums: 
+            if num != 0: 
+                nums[index] = num 
+                index += 1
+            else: 
+                continue
+        # shift numbers till it is possible to do so
 
-			# if value, accept, place next to each. one after another. when zero do nothing
-			if num != 0: 
-				nums[position] = num
-				position += 1
+        # start from where the index left off and continue till end
+        for i in range(index, len(nums)): 
+            nums[i] = 0
+        # the rest becomes zero
 
-		# till we reach the length, keep placing zero.
-		while position < len(nums): 
-			nums[position] = 0 
-			position += 1 
-
-		return nums
-
-nums = [1,2,3,0,0,4,5,0,0,6,7]
-
-sol = Solution()
-print(sol.moveZeroes(nums))
+        return nums

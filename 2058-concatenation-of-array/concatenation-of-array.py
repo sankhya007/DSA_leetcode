@@ -1,3 +1,3 @@
-class Solution(object):
-    def getConcatenation(self, nums):
-        return nums + nums 
+class Solution(): 
+    def getConcatenation(self, nums): 
+        return nums + nums

@@ -1,33 +1,29 @@
-# container with most water - leetcode
+# container with most water
 
 class Solution(): 
-	def maxArea(self, heights): 
+    def maxArea(self, height): 
 
-		# pointers
-		left = 0 
-		right = len(heights) - 1
+        left = 0 
+        right = len(height) - 1
 
-		# storage
-		max_area = 0 
+        max_area = 0 
 
-		# initial loop 
-		while left < right: 
+        while left < right: 
 
-			# container bottom width 
-			containter_width = right - left
+            # width
+            container_width = right - left
+            # area
+            valiable_area = min(height[left], height[right]) * container_width
+            # max_area(just in case)
+            max_area = max(max_area, valiable_area)
 
-			# will be changing for each columns till none left
-			variable_area = min(heights[left], heights[right]) * containter_width
+            # two pointer movement towards middle
+            # we need to get the max height else 
+            # which ever side is smaller we go towards the middle from that side to else accounting the larger height the water will spill
+            if height[left] < height[right]: 
+                left += 1
 
-			# will capture only the max 
-			max_area = max(max_area, variable_area)
+            else: 
+                right -= 1 
 
-			# trying to match up the smaller left with bigger right, by left increment
-			if heights[left] < heights[right]: 
-				left += 1 
-
-			# right increment
-			else: # right < left
-				right -= 1
-
-		return max_area
+        return max_area

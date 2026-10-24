@@ -1,5 +1,6 @@
 class Solution:
 
+    # base palindrome logic
     def isPalindrome(self, s, left, right): 
         while left < right: 
             if s[left] != s[right]: 
@@ -13,6 +14,7 @@ class Solution:
         right = len(s) - 1
         while left < right: 
             if s[left] != s[right]: 
+                # key shift left or right
                 return self.isPalindrome(s, left+1, right) or self.isPalindrome(s, left, right-1)
             left += 1
             right -= 1

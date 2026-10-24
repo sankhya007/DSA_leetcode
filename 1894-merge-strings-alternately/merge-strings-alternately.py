@@ -1,19 +1,21 @@
-class Solution: 
-    def mergeAlternately(self, s1, s2): 
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        
         merged = []
-        i ,j = 0, 0
-        while i < len(s1) and j < len(s2): 
-            merged.append(s1[i])
-            merged.append(s2[j])
+        i, j = 0, 0
+
+        while i < len(word1) and j < len(word2): 
+            merged.append(word1[i])
+            merged.append(word2[j])
             i += 1
             j += 1
 
-        while i < len(s1): 
-            merged.append(s1[i])
+        while i < len(word1): 
+            merged.append(word1[i])
             i += 1
-        
-        while j < len(s2): 
-            merged.append(s2[j])
+
+        while j < len(word2): 
+            merged.append(word2[j])
             j += 1
 
         return "".join(merged)

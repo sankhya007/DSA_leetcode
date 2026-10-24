@@ -1,40 +1,33 @@
-# evaluate reverse polish Notation 
-
 class Solution(): 
     def evalRPN(self, tokens): 
-
+        
         stack = []
         operators = "+-*/"
 
         for token in tokens: 
-            if token in operators: 
+            if token in operators:
+                
+                # 2nd element pops 1st so b will pop 1st
+                b = stack.pop()
+                a = stack.pop()
 
-                # assign elements
-                b = stack.pop() # right element
-                a = stack.pop() # left element 
-
-                # get the values form the stack and add the operator function mentioned 
                 if token == "+": 
                     stack.append(a + b)
-
-                elif token == "-": 
+                
+                if token == "-": 
                     stack.append(a - b)
 
-                elif token == "*": 
+                if token == "*": 
                     stack.append(a * b)
 
-                # no float value
-                elif token == "/": 
-                    # use absolute values 
+                if token == "/": 
                     result = abs(a) // abs(b)
-
-                    # trying to figure out of one value is negative or not, if so then turn result -ve and append. else, ignore and append 
+                    
                     if (a < 0) != (b < 0): 
-                        result = -result 
+                        result = -result
 
                     stack.append(result)
 
-            # if a value then add to the stack, make int so further calculation possible
             else: 
                 stack.append(int(token))
 

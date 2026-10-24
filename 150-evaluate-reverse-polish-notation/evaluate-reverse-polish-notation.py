@@ -14,10 +14,10 @@ class Solution():
                 a = stack.pop() # left element 
 
                 # get the values form the stack and add the operator function mentioned 
-                if token == '+': 
+                if token == "+": 
                     stack.append(a + b)
 
-                elif token == '-': 
+                elif token == "-": 
                     stack.append(a - b)
 
                 elif token == "*": 

@@ -11,9 +11,12 @@ class Solution:
         # return counter
 
         count = defaultdict(int)
+        # kinds like enumerate but inside, while we do input
         res = 0 
         for num in nums: 
+            # append to itself, everytime the value appears
             res += count[num]
+            # append and give value
             count[num] += 1
 
         return res

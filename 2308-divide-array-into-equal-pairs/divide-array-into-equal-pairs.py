@@ -5,6 +5,7 @@ class Solution:
         freq = Counter(nums)
 
         for count in freq.values(): 
+            # look for mishap, not the correct in code
             if count % 2 != 0:
                 return False
         

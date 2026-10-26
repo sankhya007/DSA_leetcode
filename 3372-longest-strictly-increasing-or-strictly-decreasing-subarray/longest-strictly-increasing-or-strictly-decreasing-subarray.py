@@ -9,12 +9,12 @@ class Solution:
         for i in range(1, len(nums)): 
 
             # if previous number smaller then increase inc
-            if nums[i] < nums[i - 1]: 
+            if nums[i] > nums[i - 1]: 
                 inc += 1
                 dec = 1
 
             # if previous number big increase dec
-            elif nums[i] > nums[i - 1]: 
+            elif nums[i] < nums[i - 1]: 
                 dec += 1
                 inc = 1 
 

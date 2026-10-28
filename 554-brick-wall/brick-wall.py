@@ -1,23 +1,13 @@
-class Solution(): 
-	def leastBricks(self, walls): 
+class Solution:
+    def leastBricks(self, wall: List[List[int]]) -> int:
+        count_gap = {0: 0}
 
-		edge_count = {}
-
-		for row in walls: 
-			# count each of the rows
-			position = 0 
-
-			for brick in row[:-1]: 
-				# count each of the bricks(leave the last one, because all of it will be an edge)
-				position += brick
-				# increment value per brick
-
-				edge_count[position] = edge_count.get(position, 0) + 1
-				# incremental edge count for all bricks in each rows
-
-			max_edges = max(edge_count.values()) if edge_count else 0
-				# for the row that has the max count of edges
-
-
-		return len(walls) - max_edges
-		# return the opposite of edge count
+        for r in wall: 
+            total = 0 
+            for i in range(len(r) - 1): 
+                total += r[i]
+                count_gap[total] = 1 + count_gap.get(total, 0)
+                # count_gap.get(total, 0) will give us the number of gap that we have in the total'th postion in current_gap
+        
+        # length - intersection
+        return len(wall) - max(count_gap.values())

@@ -1,13 +1,19 @@
-class Solution(object):
-    def sortArrayByParity(self, nums):
-        even = []
-        odd = []
+class Solution:
+    def sortArrayByParity(self, nums: list[int]) -> list[int]:
+        left = 0 
+        right = len(nums) - 1
 
-        # do i even need to explain 
-        for num in nums: 
-            if num % 2 == 0: 
-                even.append(num)
-            else: 
-                odd.append(num)
+        while left < right: 
+            if nums[left] % 2 != 0 and nums[right] % 2 == 0: 
+                nums[left], nums[right] = nums[right], nums[left]
+                left += 1
+                right -= 1
 
-        return even + odd 
+            # when they are in the right place, move pointer forward
+            elif nums[left] % 2 == 0: 
+                left += 1 
+            elif nums[right] % 2 != 0: 
+                right -= 1
+
+        return nums
+        

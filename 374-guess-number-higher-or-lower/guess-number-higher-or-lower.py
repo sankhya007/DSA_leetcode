@@ -20,6 +20,5 @@ class Solution():
 
 			else: 
 				left = mid + 1
-			
 
-# this does not even make any fucking sense
+        

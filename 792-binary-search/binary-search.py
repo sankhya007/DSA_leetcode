@@ -1,35 +1,19 @@
-# binary search - leetcode 
+class Solution:
+    def search(self, nums: list[int], target: int) -> int:
 
-class Solution(): 
-	def search(self, nums, target): 
+        left = 0 
+        right = len(nums) - 1
 
-		# pointers
-		left = 0 
-		right = len(nums) - 1
+        while left <= right: 
+            middle = (left + right) // 2
 
-		# initial loop 
-		while left <= right: 
+            if nums[middle] == target: 
+                return middle
+            
+            elif nums[middle] < target: 
+                left = middle + 1
 
-			# find mid
-			middle = (left + right) // 2 
+            else: 
+                right = middle - 1
 
-			# if match return middle
-			if nums[middle] == target: 
-				return middle 
-
-			# if small left increment
-			elif nums[middle] < target: 
-				left = middle + 1 
-
-			# if big right increment
-			else: 
-				right = middle -1 
-
-		# if no match
-		return -1 
-
-nums = [1,2,3,4,5,6,7,8,9]
-target = 4
-
-sol = Solution()
-print(sol.search(nums,target))
+        return -1 

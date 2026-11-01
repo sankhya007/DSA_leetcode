@@ -1,9 +1,15 @@
-class Solution: 
-    def mergeTwoLists(self, list1, list2):
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, list1: ListNode | None, list2: ListNode | None) -> ListNode | None:
         dummy = ListNode(0)
-        current = dummy 
+        current = dummy
+        # till there are elemnts in both list 1 and 2
         while list1 and list2: 
-            if list1.val <= list2.val: 
+            if list1.val < list2.val:
                 current.next = list1
                 list1 = list1.next
             else: 
@@ -12,7 +18,8 @@ class Solution:
             current = current.next
         if list1: 
             current.next = list1
-        else: 
+        else:
             current.next = list2
+
         return dummy.next
-        
+

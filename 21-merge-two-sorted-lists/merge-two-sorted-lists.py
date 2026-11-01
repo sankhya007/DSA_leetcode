@@ -21,5 +21,6 @@ class Solution:
         else:
             current.next = list2
 
+        # return dummy.next because dummy is actually 0, and actually does not exist and artificially created by us
         return dummy.next
 

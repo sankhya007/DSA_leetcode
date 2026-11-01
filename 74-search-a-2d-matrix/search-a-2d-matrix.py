@@ -1,45 +1,41 @@
-# search in a 2d matrix 
+class Solution:
+    def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
 
-class Solution(): 
-	def searchMatrix(self, matrix, target): 
+        # solution woll not work due to time complexity restrictions
+        # for array in matrix:
+        #     left = 0 
+        #     right = len(array) - 1
+        #     while left < right: 
+        #         mid = left + (right - left) // 2
+        #         if array[mid] == target: 
+        #             return True
+        #         if array[mid] < target: 
+        #             left = mid + 1
+        #         else: 
+        #             right = mid
+        #     return False
 
-		# check if the matrix is empty
-		if not matrix and not matrix[0]: 
-			return False 
+        if not matrix and not matrix[0]: 
+            return False
+        
+        rows = len(matrix)
+        cols = len(matrix[0])
 
-		# count rows and cols
-		rows = len(matrix)
-		cols = len(matrix[0])
+        left = 0 
+        right = rows * cols - 1
 
-		# pointers
-		left = 0 
-		right = rows * cols - 1 # last element rows*cols
+        while left <= right: 
 
-		# initial loop 
-		while left <= right: 
+            mid = left + (right - left) // 2
+            mid_value = matrix[mid // cols][mid % cols]
 
-			# mid number
-			mid = left + (right - left) // 2 
-			# value col
-			mid_value = matrix[mid // cols][mid % cols]
+            if mid_value == target: 
+                return True 
 
-			# if same return
-			if mid_value == target: 
-				return True
+            if mid_value < target: 
+                left = mid + 1
 
-			# if value bigger than mid, leave out left part 
-			elif mid_value < target: 
-				left = mid + 1 
+            else: 
+                right = mid - 1
 
-			# if value smaller, leave out right part
-			else: 
-				right = mid - 1 
-
-		return False
-
-
-matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]]
-target = 3
-
-sol = Solution()
-print(sol.searchMatrix(matrix, target))
+        return False

@@ -1,41 +1,23 @@
-# koko eating bananas - leetcode 
+import math
 
-class Solution(): 
-	def minEatingSpeed(self, piles, h): 
+class Solution:
+    def minEatingSpeed(self, piles: list[int], h: int) -> int:
+        left = 1
+        right = max(piles) 
+        res = right # this is the max bananas koko can eat even if he can eat more than this that will not cause any result in the output 
 
-		# at mean can have one banana one hr 
-		left = 1 
-		# at max can eat the whole pile in one hr 
-		right = max(piles)
+        while left <= right: 
+            k = left + (right - left) // 2
+            hour = 0 
 
-		# loop 
-		while left <= right: 
+            for pile in piles: 
+                hour += math.ceil(pile / k)
 
-			# trying out the mid speed 
-			k = (left + right) // 2  
+            if hour <= h: 
+                res = min(res, k)
+                right = k - 1
+            
+            else: 
+                left = k + 1
 
-			# container
-			hours = 0 
-
-			for pile in piles: 
-				# calculate rounded up
-				hours += (pile + k - 1) // k 
-
-			# no need to increment or decrement left, right. that makes the process slower. jump to the value of K that is better for the calculation
-			# if k is sufficient, find if possible slower
-			if hours <= h: 
-				right = k - 1
-				# right -= 1
-
-			# if not sufficient, find if possible faster
-			else: 
-				left = k + 1 
-				# left += 1
-				
-		return left
-
-piles = [3,6,7,11] 
-h = 8
-
-sol = Solution()
-print(sol.minEatingSpeed(piles, h))
+        return res

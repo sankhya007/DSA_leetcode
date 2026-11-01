@@ -29,7 +29,9 @@ class Solution:
 
                 else: 
                     left = mid + 1
-                
+            # because the array is sorted anything before left is too weak, but left itself and anything after left will work 
+            # m is the right of the array, and left is the 1st working one
+            # if nothing works then left would be same as "m" itself, making the command append a zero
             res.append(m - left)
 
         return res

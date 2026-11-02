@@ -7,9 +7,10 @@
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         if not headA or not headB: 
-            return None
-        ptr1, ptr2 = headA, headB 
+            return None 
+        ptr1, ptr2 = headA, headB
         while ptr1 != ptr2: 
+        # when the pointer is finished with its own list it switches to the other list, till it is not finding the matching number
             ptr1 = ptr1.next if ptr1 else headB
             ptr2 = ptr2.next if ptr2 else headA
         return ptr1

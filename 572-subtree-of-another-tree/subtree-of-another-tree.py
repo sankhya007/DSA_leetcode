@@ -17,6 +17,7 @@ class Solution:
         if self.sameTree(root, subRoot): 
             return True
         # because the subtree has to be a part of the root, check if the left or the right is showed as root if that compared to subroot would that be True or nah
+        # call isSubtree and not sametree because if not same we can call same tree again and again, there is not gurantee that this will work on the 1st try
         return ((self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)))
 
     def sameTree(self, root: TreeNode | None, subRoot: TreeNode | None) -> bool:

@@ -1,9 +1,8 @@
 class Solution:
     def appendCharacters(self, s: str, t: str) -> int:
-        i = 0 
-
+        pointer = 0 
         for ch in s: 
-            if i < len(t) and ch == t[i]: 
-                i += 1
+            if pointer < len(t) and ch == t[pointer]: 
+                pointer += 1
 
-        return len(t) - i
+        return len(t) - pointer

@@ -1,7 +1,5 @@
-# two sum
-
-class Solution(): 
-    def twoSum(self, nums, target): 
+class Solution:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
         storage = {}
 
         for i, num in enumerate(nums): 

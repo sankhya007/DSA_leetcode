@@ -1,13 +1,17 @@
 class Solution:
     def generate(self, numRows: int) -> list[list[int]]:
-        triangle = [[1]]
+        
+        valid_triangle = [[1]]
+
+        if numRows == 1: 
+            return valid_triangle
 
         for i in range(1, numRows): 
-            prev = triangle[-1] # select the last element
-            row = [1] # add the 1st 1in the row 
-            for j in range(1, i): # loop at many times we need
-                row.append(prev[j -1] + prev[j]) # add the existing two values and move forward by one increment
-            row.append(1) # add the last 1 
-            triangle.append(row) # append the row itself 
+            prev_row = valid_triangle[-1]
+            row = [1] # because the 1st element will always be 1
+            for j in range(1, i): 
+                row.append(prev_row[j-1] + prev_row[j])
+            row.append(1) # because the last element of the row will also always be 1
+            valid_triangle.append(row)
 
-        return triangle
+        return valid_triangle

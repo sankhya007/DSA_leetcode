@@ -5,4 +5,7 @@ class Solution:
         available = Counter(magazine)
         need = Counter(ransomNote)
 
-        return all(need[c] <= available[c] for c in need)
+        if all(need[c] <= available[c] for c in need): 
+            return True
+
+        return False

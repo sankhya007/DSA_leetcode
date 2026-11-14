@@ -1,15 +1,14 @@
 class Solution:
     def maxAscendingSum(self, nums: list[int]) -> int:
-        
-        best = current = nums[0]
+        current = nums[0]
+        best = nums[0]
 
         for i in range(1, len(nums)): 
-
-            if nums[i] > nums[i - 1]: 
+            if nums[i-1] < nums[i]: 
                 current += nums[i]
             else: 
-                current = nums[i]
-            
+                current = nums[i] 
+
             best = max(best, current)
 
-        return best 
+        return best

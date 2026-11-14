@@ -1,9 +1,11 @@
 class Solution:
     def heightChecker(self, heights: list[int]) -> int:
-        expected = sorted(heights)
-        counter = 0
-        for act, exp in zip(heights, expected): 
-            if act != exp: 
-                counter += 1 
-        
-        return counter
+        sort = sorted(heights)
+        i = count = 0 
+
+        while i < len(heights):
+            if heights[i] != sort[i]: 
+                count += 1
+            i += 1
+
+        return count

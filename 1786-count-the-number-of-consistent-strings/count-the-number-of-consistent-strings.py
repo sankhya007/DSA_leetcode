@@ -1,12 +1,12 @@
-from collections import Counter
-
 class Solution:
     def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
-        available = set(allowed)   
         count = 0
 
         for word in words: 
-            if all(c in available for c in word): 
+            for ch in word:
+                if ch not in allowed: 
+                    break
+            else: 
                 count += 1
 
         return count

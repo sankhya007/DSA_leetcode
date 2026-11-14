@@ -1,14 +1,11 @@
 class Solution:
     def check(self, nums: list[int]) -> bool:
         sortedNums = sorted(nums)
-        arr = []
+        array = []
 
         for i in range(len(nums)): 
-            # pop last element form sortedNum 
-            # append that to start or sorted num
-            # check if match with given nums
-            arr.insert(0, sortedNums.pop())
-            if nums == arr + sortedNums: 
+            array.insert(0, sortedNums.pop())
+            if nums == array + sortedNums: 
                 return True
 
-        return False   
+        return False

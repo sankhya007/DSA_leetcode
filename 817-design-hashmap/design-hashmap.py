@@ -1,19 +1,15 @@
-class MyHashMap(object):
+class MyHashMap:
 
     def __init__(self):
-        # given in ther question
         self.data = [-1] * ((10**6) + 1)
 
-    # insert 
-    def put(self, key, value):
+    def put(self, key: int, value: int) -> None:
         self.data[key] = value
 
-    # ask 
-    def get(self, key):
+    def get(self, key: int) -> int:
         return self.data[key]
 
-    # remove, and back to default
-    def remove(self, key):
+    def remove(self, key: int) -> None:
         self.data[key] = -1
 
 

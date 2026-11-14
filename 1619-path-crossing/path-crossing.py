@@ -1,21 +1,21 @@
 class Solution:
     def isPathCrossing(self, path: str) -> bool:
-
         x, y = 0, 0
-        visited = {(0, 0)}
+        visited = {(0, 0)} # this is the position that we are going to start with 
 
-        for i in path: 
-            if i == "N": 
+        for direction in path: 
+            if direction == "N": 
                 y += 1
-            elif i == "S": 
+            if direction == "S": 
                 y -= 1
-            elif i == "E": 
+            if direction == "E": 
                 x += 1
-            elif i == "W": 
+            if direction == "W": 
                 x -= 1
-            
-            if (x, y) in visited: 
-                return True
-            visited.add((x, y))
 
-        return False
+            if (x, y) not in visited: 
+                visited.add((x, y))
+            else: 
+                return True
+
+        return False 

@@ -1,20 +1,16 @@
 class Solution:
     def getRow(self, rowIndex: int) -> list[int]:
-
-        # because now row
+        triangle = [[1]]
+        
         if rowIndex == 0: 
-            return [1]
+            return triangle[-1]
 
-        # 1st element
-        curRow = [1]
+        for i in range(rowIndex+1): 
+            previous = triangle[-1]
+            row = [1]
+            for j in range(1, i):
+                row.append(previous[j-1] + previous[j])
+            row.append(1)
+            triangle.append(row)
 
-        # for only the last index
-        prevRow = self.getRow(rowIndex - 1)
-
-        for i in range(1, rowIndex): 
-            curRow.append(prevRow[i - 1] + prevRow[i])
-
-        # last element
-        curRow.append(1)
-
-        return curRow
+        return triangle[-1]

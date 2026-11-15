@@ -8,8 +8,8 @@ class Solution:
             for ch in word: 
                 freq[ch] += 1
 
-        for ch in freq: 
-            if freq[ch] % len(words) != 0: 
+        for i, ch in freq.items(): 
+            if ch % len(words): 
                 return False
 
         return True

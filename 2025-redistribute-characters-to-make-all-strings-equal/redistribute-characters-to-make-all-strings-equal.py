@@ -2,16 +2,14 @@ from collections import defaultdict
 
 class Solution:
     def makeEqual(self, words: list[str]) -> bool:
-        seen = defaultdict(int)
-
+        freq = defaultdict(int)
+        
         for word in words: 
-            for c in word: 
-                seen[c] += 1
-        # increment everytime it is seen
+            for ch in word: 
+                freq[ch] += 1
 
-        for c in seen:
-            if seen[c] % len(words): 
+        for ch in freq: 
+            if freq[ch] % len(words) != 0: 
                 return False
-        # the len of array is the ideal len if every string
 
         return True

@@ -1,11 +1,12 @@
 class Solution:
     def sortPeople(self, names: list[str], heights: list[int]) -> list[str]:
-        height_to_name = {}
-        for name, height in zip(names, heights): 
-            height_to_name[height] = name
-
         result = []
+        conbination = {}
+
+        for name, height in zip(names, heights): 
+            conbination[height] = name
+
         for h in reversed(sorted(heights)): 
-            result.append(height_to_name[h])
+            result.append(conbination[h])
 
         return result

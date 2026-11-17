@@ -12,8 +12,11 @@ class Solution:
                     arr1[i] = -1
 
         arr1.sort() # wil the left overs
-        for i in range(len(result), len(arr1)): 
+        # for i in range(len(result), len(arr1)): 
             # arr1 is the max length it can go upto anf the result is what ever that we have finished adding in the result so whatever is left is what wee have to add, and previously the sort() function has already sorted them so we can add them as is
-            result.append(arr1[i])
+            # result.append(arr1[i])
+
+        result.extend(arr1[len(result):])
+
 
         return result

@@ -1,4 +1,5 @@
 from collections import Counter
+# seriously i have to use conter or this?
 
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:

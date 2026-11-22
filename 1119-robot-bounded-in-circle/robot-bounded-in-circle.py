@@ -33,6 +33,7 @@ class Solution:
         if "G" not in instructions: 
             return True
 
+        # if the fnal direction is not the same as the initial direction
         if facing != "N": 
             return True
 

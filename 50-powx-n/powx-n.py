@@ -17,7 +17,9 @@ class Solution:
             if n == 0: 
                 return 1
 
+            # square the base and have half of the exponent
             res = helper(x * x, n // 2)
+            # if the exponent is odd then we are going to multiply the number one extra time with the given number itself and then return than, else we just return as is
             return x * res if n % 2 else res
 
         res = helper(x, abs(n))
